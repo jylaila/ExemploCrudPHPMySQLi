@@ -1,5 +1,5 @@
 <body>
-    <form action="" method="post">
+    <form action="../controller/clienteController.php" method="post">
         <div class="modal fade" id="cadCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

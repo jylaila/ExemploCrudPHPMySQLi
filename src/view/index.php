@@ -31,11 +31,13 @@ data-toggle="modal" data-target="#cadCliente">Cadastrar</button>
       <td><?php echo $objcli->nome;?></td>
       <td><?php echo $objcli->endereco;?></td>
       <td><?php echo $objcli->telefone;?></td>
-      <td> Editar | 
+      <td> 
+      <a href="editarCliente.php?id=<?php echo $objcli->codigo?>&acao=editar">  
+      <i class="bi bi-pencil-square"></i></a> 
         
       <!-- <button location.href="#">Exemplo</button> -->
       <a href="#" onclick="javascript: if (confirm('Você realmente deseja excluir este cliente?'))location.href='../controller/clienteController.php?id=<?php echo $objcli->codigo ?>&acao=excluir'">
-      Excluir </a> 
+      <i class="bi bi-trash"></i> </a> 
     </td>
     </tr>
     <?php }?>

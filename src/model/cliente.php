@@ -110,11 +110,26 @@ class Cliente
         return $dados;
     }
 
+    public function listarporTipo($conexao, $categoria)
+    {
+        $comandosql = "Select * from produto where idcategoria=$categoria";
+        $dados = $conexao->query($comandosql);
+        return $dados;
+    }
+
+    public function listarItensPedido($conexao, $pedido)
+    {
+        $comandosql = "Select * from itensPedido where idPedido=$pedido";
+        $dados = $conexao->query($comandosql);
+        return $dados;
+    }
+
     public function atualizarCliente($conexao, $obj)
     {
         $comandosql = "Update cliente set nome = '$obj->nome',
                         endereco = '$obj->endereco', telefone='$obj->telefone'
                         where codigo = $obj->codigo";
+        echo $comandosql;
         if ($conexao->query($comandosql))
             return true;
     }
