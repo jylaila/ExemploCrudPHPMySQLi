@@ -117,19 +117,11 @@ class Cliente
         return $dados;
     }
 
-    public function listarItensPedido($conexao, $pedido)
-    {
-        $comandosql = "Select * from itensPedido where idPedido=$pedido";
-        $dados = $conexao->query($comandosql);
-        return $dados;
-    }
-
     public function atualizarCliente($conexao, $obj)
     {
         $comandosql = "Update cliente set nome = '$obj->nome',
                         endereco = '$obj->endereco', telefone='$obj->telefone'
-                        where codigo = $obj->codigo";
-        echo $comandosql;
+                        where codigo = $obj->codigo";   
         if ($conexao->query($comandosql))
             return true;
     }
@@ -139,5 +131,12 @@ class Cliente
         $comandosql = "Delete from cliente where codigo = $codigo";
         if ($conexao->query($comandosql))
             return true;
+    }
+
+    public function ultimoId($conexao){
+        $comandosql = "select max(id)+1 as id from cliente";
+        $dados=$conexao->query($comandosql);
+        return $dados;
+
     }
 }
